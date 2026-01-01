@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grandfather with Wives Radial Tree</title>
+
 <style>
 /* ---------- Global Styles ---------- */
 body {
@@ -28,15 +29,9 @@ nav.top a {
   text-decoration: none;
   font-weight: bold;
   margin: 0 15px;
-  transition: color 0.3s, transform 0.3s;
 }
 
-nav.top a:hover {
-  color: #e91a63;
-  transform: scale(1.1);
-}
-
-/* ---------- Bottom Info ---------- */
+/* ---------- Footer ---------- */
 footer {
   text-align: center;
   padding: 10px 0;
@@ -44,40 +39,38 @@ footer {
   font-size: 14px;
 }
 
-/* ---------- Tree Container ---------- */
+/* ---------- Tree ---------- */
 .tree {
-  position: relative; 
+  position: relative;
   width: 100%;
   max-width: 1000px;
-  aspect-ratio: 1 / 1;      /* perfect square that follows width */
-  margin: 50px auto;
-  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  margin: 40px auto;
 }
 
 /* ---------- Center Person ---------- */
-@keyframes floatCenter {
-  0%,100%{ transform: translate(-50%,-50%) translateY(0); }
-  50%{ transform: translate(-50%,-50%) translateY(-10px); }
-}
 .center-person {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%,-50%);
-  width: 220px; background: #e0f0ff;
-  border: 2px solid #1a73e8; border-radius: 15px;
-  text-align: center; padding: 20px; z-index: 3;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  width: 220px;
+  background: #e0f0ff;
+  border: 2px solid #1a73e8;
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  z-index: 3;
   cursor: pointer;
-  animation: floatCenter 3s ease-in-out infinite;
 }
-.center-person:hover { transform: translate(-50%,-50%) scale(1.05); }
-.center-person img { width: 120px; height: 120px; border-radius: 50%; }
+
+.center-person img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
 
 /* ---------- Wives ---------- */
-@keyframes popIn {
-  0% { transform: translate(-50%, -50%) scale(0); opacity:0; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity:1; }
-}
 .wife {
   position: absolute;
   width: 140px;
@@ -86,14 +79,15 @@ footer {
   border-radius: 12px;
   padding: 10px;
   text-align: center;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  z-index: 2;
-  opacity: 0;
-  animation: popIn 0.8s forwards;
 }
-.wife img { width: 70px; height: 70px; border-radius: 50%; }
-.wife:hover { transform: translate(-50%, -50%) scale(1.1); transition: transform 0.3s; }
+
+.wife img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
 
 /* ---------- Lines ---------- */
 .line {
@@ -104,198 +98,161 @@ footer {
   background: #555;
   transform-origin: top center;
   z-index: 1;
-  height: 0;
-  animation: growLine 0.8s forwards;
 }
-@keyframes growLine { 0% { height:0; } 100% { height: var(--lineHeight); } }
 
-/* ---------- Modal & Slideshow ---------- */
+/* ---------- Modal ---------- */
 .modal {
   display: none;
   position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
   z-index: 100;
-  left:0; top:0;
-  width:100%; height:100%;
-  overflow:auto;
-  background-color: rgba(0,0,0,0.6);
 }
+
 .modal-content {
-  background:#fff;
-  margin:5% auto;
-  padding:20px;
-  border-radius:10px;
-  width:500px;
-  max-width:95%;
-  box-shadow:0 5px 20px rgba(0,0,0,0.3);
-  position: relative;
-}
-.close {
-  position:absolute;
-  top:10px; right:15px;
-  font-size:24px;
-  font-weight:bold;
-  cursor:pointer;
-}
-.slideshow-container {
-  position: relative;
-  max-width: 100%;
-  margin: 20px 0;
-  overflow: hidden;
+  background: #fff;
+  margin: 5% auto;
+  padding: 20px;
   border-radius: 10px;
+  width: 500px;
+  max-width: 95%;
+  position: relative;
 }
-.slides { display: none; width: 100%; height: 250px; object-fit: cover; border-radius: 10px; }
 
-/* SMALL SCREENS */
-@media (max-width: 600px){
-  .center-person{
-    width: 180px;
-    padding: 15px;
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  .tree {
+    aspect-ratio: auto;
+    height: auto;
   }
 
-  .center-person img{
-    width: 110px;
-    height: 110px;
+  .center-person {
+    position: relative;
+    transform: none;
+    margin: 20px auto 30px;
   }
 
-  .wife{
-    width: 130px;
+  .line {
+    display: none;
   }
 
-  .wife h4{
-    font-size: 13px;
+  .wife {
+    position: relative;
+    transform: none;
+    width: 90%;
+    max-width: 320px;
+    margin: 15px auto;
   }
 }
 </style>
 </head>
+
 <body>
 
-<!-- Top Nav -->
 <nav class="top">
   <a href="index.html">Home</a>
   <a href="About.html">About</a>
   <a href="port.html">Contact</a>
 </nav>
 
-<!-- Tree -->
 <div class="tree" id="tree">
   <div class="center-person" id="centerPerson">
-    <img src="images/alhaji.jpeg" alt="Alhaji Shehu Katcha">
+    <img src="images/alhaji.jpeg" alt="">
     <h3>ALHAJI SHEHU KATCHA</h3>
-    <div class="bio">
-      Born: 1930<br>
-      Deceased: 2007<br>
-
-    </div>
+    <div>Born: 1930<br>Deceased: 2007</div>
   </div>
 </div>
 
-<!-- Bottom Info -->
-<footer>
-  © 2026 Family Legacy
-</footer>
+<footer>© 2026 Family Legacy</footer>
 
 <!-- Modal -->
-<div id="bioModal" class="modal">
+<div class="modal" id="bioModal">
   <div class="modal-content">
     <span class="close">&times;</span>
     <h2>ALHAJI SHEHU KATCHA</h2>
-    <p>
-      Full Biography: Alhaji Shehu Katcha was born in 1930 and he served as the secretary to the State Government(SMG) and Head of service(HOS) for a period. He held his position from August 1981 to 1983.
-      He also worked at the Nigerian Railway Corporation(NRC) as a General Manager.
-       He passed away in 2004 August 14, leaving a lasting legacy.
-    </p>
-    <!-- Slideshow -->
-    <div class="slideshow-container">
-      
-      <img class="slides" src="images/memories6.jpeg" alt="">
-      
-    </div>
+    <p>Full biography content here...</p>
   </div>
 </div>
 
 <script>
-// Modal functionality
-const centerPerson = document.getElementById("centerPerson");
-const modal = document.getElementById("bioModal");
-const closeBtn = document.querySelector(".close");
-
-centerPerson.addEventListener("click", () => { modal.style.display="block"; startSlideshow(); });
-closeBtn.addEventListener("click", () => { modal.style.display="none"; stopSlideshow(); });
-window.addEventListener("click", e => { if(e.target==modal){ modal.style.display="none"; stopSlideshow(); } });
-
-// Wives data
 const wives = [
-  { name: "Ya Tifen", img: "images/dead.jpeg" },
-  { name: "Ya Giwa", img: "images/dead.jpeg" },
-  { name: "Ya Dare (Aisha)", img: "images/dead.jpeg" },
-  { name: "Hajiya Naku", img: "images/fatima naku.jpeg" },
-  { name: "Ya Aya", img: "images/dead.jpeg" },
-  { name: "Ya Uraira", img: "images/dead.jpeg" },
-  { name: "Hajiya Hassana",  img: "images/nnagihassana.jpeg" },
-  { name: "Hajiya Iya",img: "images/iya.jpeg" },
-  { name: "Talatu",  img: "images/dead.jpeg" },
-  { name: "Nnagi Waro",  img: "images/Nnagiworo.jpeg" },
-  { name: "Hajiya Rakiya",  img: "images/hajiya rakiya.jpeg" },
-  { name: "Ya Zwade",  img:"images/dead.jpeg" },
+  { name:"Ya Tifen", img:"images/dead.jpeg" },
+  { name:"Ya Giwa", img:"images/dead.jpeg" },
+  { name:"Ya Dare (Aisha)", img:"images/dead.jpeg" },
+  { name:"Hajiya Naku", img:"images/fatima naku.jpeg" },
+  { name:"Ya Aya", img:"images/dead.jpeg" },
+  { name:"Ya Uraira", img:"images/dead.jpeg" },
+  { name:"Hajiya Hassana", img:"images/nnagihassana.jpeg" },
+  { name:"Hajiya Iya", img:"images/iya.jpeg" },
+  { name:"Talatu", img:"images/dead.jpeg" },
+  { name:"Nnagi Waro", img:"images/Nnagiworo.jpeg" },
+  { name:"Hajiya Rakiya", img:"images/hajiya rakiya.jpeg" },
+  { name:"Ya Zwade", img:"images/dead.jpeg" },
   { name:"Hajiya Yagidi", img:"images/ya gidi.jpeg" }
 ];
 
 const tree = document.getElementById("tree");
 
-// function to draw wives responsively
-function drawWives(){
-  // clear old nodes except center-person
-  [...tree.querySelectorAll(".line, a")].forEach(el => el.remove());
+function drawWives() {
+  tree.querySelectorAll(".wife, .line").forEach(e => e.remove());
 
+  const isMobile = window.innerWidth <= 768;
   const rect = tree.getBoundingClientRect();
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
-  const radius = Math.min(rect.width, rect.height) / 2 - 80; // padding from edge
+  const cx = rect.width / 2;
+  const cy = rect.height / 2;
+  const radius = Math.min(rect.width, rect.height) / 2 - 100;
 
   wives.forEach((wife, i) => {
-    const angle = (2*Math.PI/wives.length)*i - Math.PI/2;
-    const x = centerX + radius*Math.cos(angle);
-    const y = centerY + radius*Math.sin(angle);
 
-    const line = document.createElement("div");
-    line.className = "line";
-    line.style.setProperty('--lineHeight', `${radius}px`);
-    line.style.transform = `rotate(${angle*180/Math.PI}deg)`;
-    tree.appendChild(line);
+    if (!isMobile) {
+      const angle = (2 * Math.PI / wives.length) * i - Math.PI / 2;
+      const line = document.createElement("div");
+      line.className = "line";
+      line.style.height = radius + "px";
+      line.style.transform = `rotate(${angle * 180 / Math.PI}deg)`;
+      tree.appendChild(line);
 
-    const link = document.createElement("a");
-    link.href = `wife.html?id=${i+1}`;
-    link.target = "_blank";
-    link.style.position="absolute";
-    link.style.left=x+"px";
-    link.style.top=y+"px";
-    link.style.textDecoration="none";
-    link.style.color="inherit";
+      var x = cx + radius * Math.cos(angle);
+      var y = cy + radius * Math.sin(angle);
+    }
+
+    const card = document.createElement("a");
+    card.href = `wife.html?id=${i+1}`;
+    card.style.textDecoration = "none";
+    card.style.color = "inherit";
 
     const div = document.createElement("div");
-    div.className="wife";
-    div.style.animationDelay = `${i*0.2}s`;
-    div.innerHTML = `<img src="${wife.img}" alt="${wife.name}"><h4>${wife.name}</h4><div class="bio">Born: ${wife.born}</div>`;
-    link.appendChild(div);
-    tree.appendChild(link);
+    div.className = "wife";
+    div.innerHTML = `<img src="${wife.img}"><h4>${wife.name}</h4>`;
+
+    if (!isMobile) {
+      card.style.position = "absolute";
+      card.style.left = x + "px";
+      card.style.top = y + "px";
+    }
+
+    card.appendChild(div);
+    tree.appendChild(card);
   });
 }
 
-// draw initially and on resize/orientation change
 drawWives();
 window.addEventListener("resize", drawWives);
 
-// Slideshow
-let slideIndex = 0, slideInterval;
-function showSlides(){
-  const slides = document.getElementsByClassName("slides");
-  for(let i=0;i<slides.length;i++){ slides[i].style.display="none"; }
-  slideIndex++;
-  if(slideIndex>slides.length) slideIndex=1;
-  slides[slideIndex-1].style.display="block";
-}
-function startSlideshow(){ showSlides(); slideInterval=setInterval(showSlides,2500); }
-function stopSlideshow(){ clearInterval(slideInterval); }
+/* Modal */
+const modal = document.getElementById("bioModal");
+document.getElementById("centerPerson").onclick = () => modal.style.display="block";
+document.querySelector(".close").onclick = () => modal.style.display="none";
+window.onclick = e => { if(e.target === modal) modal.style.display="none"; };
 </script>
 
 </body>
