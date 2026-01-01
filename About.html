@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Our Family</title>
+<style>
+/* ---------- Global Styles ---------- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f0f4f8, #d9eaf7);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 50px 20px 20px 20px;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  color: #1a73e8;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+  margin: 10px auto 0 auto;
+}
+
+/* ---------- About Content ---------- */
+.about-content {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.about-content h2 {
+  font-size: 2rem;
+  color: #1a73e8;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+/* ---------- Slideshow Styles ---------- */
+.slideshow-container {
+  position: relative;
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.slides {
+  display: none;
+  width: 100%;
+  height: 1000px;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+}
+
+.slideshow-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(26, 115, 232, 0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* ---------- Navigation Arrows ---------- */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(26, 115, 232, 0.7);
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  user-select: none;
+  transition: background 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background: #e91a63;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 50px;
+  border-top: 1px solid #ccc;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 700px) {
+  .slides { height: 300px; }
+  .slideshow-caption { font-size: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>About Our Family</h1>
+  <p>
+    Welcome to the family archive of Alhaji Shehu Katcha. This website is dedicated to preserving and celebrating the legacy of our grandfather, his wives, children, and grandchildren. Browse through the photos and learn about our family history.
+  </p>
+</header>
+
+<div class="about-content">
+  <h2>Family Legacy</h2>
+  <p>
+    Alhaji Shehu Katcha was born in 1915 and was a teacher and community leader. He devoted his life to education and uplifting his community. Our family has grown over the years, encompassing loving wives, children, and grandchildren. This site is a tribute to our heritage, showing the bonds that connect generations.
+  </p>
+
+  <h2>Family Memories</h2>
+  <p>
+    We have collected some of the most memorable moments captured in photographs over the years. From family gatherings, weddings, celebrations, to everyday life moments, these images reflect the warmth and closeness of our family.
+  </p>
+</div>
+
+<!-- ---------- Slideshow ---------- -->
+<div class="slideshow-container">
+  <img class="slides" src="images/memories1.jpeg" alt="Grandfather">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories2.jpeg" alt="Wives">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories3.jpeg" alt="Children">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories4.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories5.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories6.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories7.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories8.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories9.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories10.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories11.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories12.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories13.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories14.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories15.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories16.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories17.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories18.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories19.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories20.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <img class="slides" src="images/memories21.jpeg" alt="Grandchildren">
+  <div class="slideshow-caption">memories</div>
+
+  <!-- Navigation Arrows -->
+  <span class="prev">&#10094;</span>
+  <span class="next">&#10095;</span>
+</div>
+
+<footer>
+  &copy; 2026 Ahmad Muhammad | Family Archive
+</footer>
+
+<script>
+let slideIndex = 0;
+const slides = document.getElementsByClassName("slides");
+const captions = document.getElementsByClassName("slideshow-caption");
+
+function showSlide(index) {
+  for(let i = 0; i < slides.length; i++){
+    slides[i].style.display = "none";
+    captions[i].style.display = "none";
+  }
+  slides[index].style.display = "block";
+  captions[index].style.display = "block";
+}
+
+function nextSlide(n) {
+  slideIndex += n;
+  if(slideIndex >= slides.length) slideIndex = 0;
+  if(slideIndex < 0) slideIndex = slides.length - 1;
+  showSlide(slideIndex);
+}
+
+// Initial display
+showSlide(slideIndex);
+
+// Auto slide every 3 seconds
+setInterval(()=>{ nextSlide(1); }, 4000);
+
+// Navigation buttons
+document.querySelector(".prev").addEventListener("click", ()=> nextSlide(-1));
+document.querySelector(".next").addEventListener("click", ()=> nextSlide(1));
+</script>
+
+</body>
+</html>

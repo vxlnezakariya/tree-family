@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmad Muhammad - Portfolio</title>
+<style>
+/* ---------- Global Styles ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ---------- Container ---------- */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  width: 40%;
+  max-width: 500px;
+  margin: 20px;
+  animation: fadeIn 1.2s ease-in-out;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* ---------- Profile Image ---------- */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+.profile-img:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* ---------- Name & Title ---------- */
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #ffeb3b;
+  margin-bottom: 20px;
+  font-weight: 400;
+  animation: slideIn 1s ease-out;
+}
+
+/* ---------- Bio ---------- */
+p {
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 1rem;
+}
+
+/* ---------- Skills ---------- */
+.skills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.skill {
+  background: rgba(255,255,255,0.2);
+  padding: 8px 15px;
+  border-radius: 20px;
+  transition: 0.3s;
+  color: white;
+  font-weight: 500;
+}
+
+.skill:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.1);
+}
+
+/* ---------- Buttons ---------- */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #ffeb3b;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background: #fff176;
+  transform: translateY(-3px);
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideIn {
+  from {opacity: 0; transform: translateX(-50px);}
+  to {opacity: 1; transform: translateX(0);}
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 500px){
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.2rem; }
+  .profile-img { width: 120px; height: 120px; }
+  button { padding: 10px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="images/zakiii.jpeg" alt="Profile Picture" class="profile-img">
+  <h1>Zakariya Mohammed</h1>
+  <h2>Front-End Web Developer</h2>
+  <p>
+    Passionate front-end developer with experience in building responsive and modern web applications.
+    Skilled in HTML, CSS, JavaScript, React, and UI/UX design. I enjoy creating beautiful and functional
+    interfaces that engage users.
+  </p>
+
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">React</div>
+    <div class="skill">UI/UX</div>
+  </div>
+
+  <div class="buttons">
+    <button onclick="window.location.href='ahmadmk13115@gmail.com'">Contact Me</button>
+    <button onclick="window.open('https://github.com/ahmadmk')">GitHub</button>
+  </div>
+</div>
+
+
+<div class="container">
+  <img src="images/aji.jpg" alt="Profile Picture" class="profile-img">
+  <h1>Ahmad Muhammad</h1>
+  <h2>Front-End Web Developer</h2>
+  <p>
+    Passionate front-end developer with experience in building responsive and modern web applications.
+    Skilled in HTML, CSS, JavaScript, React, and UI/UX design. I enjoy creating beautiful and functional
+    interfaces that engage users.
+  </p>
+
+  <div class="skills">
+    <div class="skill">HTML</div>
+    <div class="skill">CSS</div>
+    <div class="skill">JavaScript</div>
+    <div class="skill">React</div>
+    <div class="skill">UI/UX</div>
+  </div>
+
+  <div class="buttons">
+    <button onclick="window.location.href='mailto:ahmad@example.com'">Contact Me</button>
+    <button onclick="window.open('https://github.com/yourgithub','_blank')">GitHub</button>
+  </div>
+</div>
+</body>
+</html>

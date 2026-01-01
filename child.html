@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Child Profile</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#1b1e24,#3b3f47);
+  color:white;
+}
+
+.back-btn{
+  display:inline-block;
+  margin:20px;
+  padding:10px 18px;
+  background:rgba(255,255,255,0.15);
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+}
+.back-btn:hover{background:rgba(255,255,255,0.3);}
+
+/* 3-column layout on larger screens, stacks on mobile */
+.profile-row{
+  width:90%;
+  max-width:1200px;
+  margin:10px auto 30px auto;
+  display:grid;
+  grid-template-columns:1fr 2fr 1fr; /* child | bio | spouse */
+  gap:20px;
+}
+
+/* side cards */
+.side-card{
+  background:rgba(255,255,255,0.12);
+  border-radius:16px;
+  padding:15px;
+  text-align:center;
+  border:2px solid #e91a63;
+}
+.side-card img{
+  width:100%;
+  max-height:260px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+/* bio in the center */
+.bio-card{
+  background:rgba(255,255,255,0.1);
+  border-radius:16px;
+  padding:20px;
+  border:2px solid #ffd9b3;
+}
+.bio-card h2{
+  margin-top:0;
+  font-size:24px;
+}
+.bio-card p{
+  font-size:15px;
+  line-height:1.6;
+  margin:8px 0;
+}
+
+/* children grid/cards */
+.section-title{
+  text-align:center;
+  margin:20px 0 10px;
+  color:#ffd9b3;
+  font-size:22px;
+}
+
+.children-grid{
+  width:90%;
+  max-width:1300px;
+  margin:0 auto 40px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.child-card{
+  background:rgba(255,255,255,0.13);
+  border-radius:18px;
+  padding:14px;
+  text-align:center;
+  border:2px solid #1a73e8;
+  transition:0.3s;
+}
+.child-card:hover{
+  transform:translateY(-4px);
+}
+.child-card.late{
+  opacity:0.6;
+}
+
+.child-card img{
+  width:100%;
+  max-height:220px;
+  object-fit:cover;
+  border-radius:14px;
+}
+.child-card h4{
+  margin:10px 0 4px;
+  font-size:16px;
+  color:#ffe6c6;
+}
+.child-card p{
+  margin:2px 0;
+  font-size:13px;
+  color:#ffd9b3;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+  .profile-row{
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+  .side-card img{
+    max-height:220px;
+  }
+  .bio-card{
+    padding:16px;
+  }
+  .bio-card h2{
+    font-size:20px;
+  }
+  .bio-card p{
+    font-size:14px;
+  }
+  .section-title{
+    font-size:20px;
+    margin:15px 0 8px;
+  }
+  .children-grid{
+    gap:14px;
+  }
+  .child-card{
+    padding:12px;
+  }
+  .child-card img{
+    max-height:200px;
+  }
+  .child-card h4{
+    font-size:15px;
+  }
+  .child-card p{
+    font-size:12px;
+  }
+}
+</style>
+</head>
+<body>
+
+<a href="javascript:history.back()" class="back-btn">← Back</a>
+
+<div class="profile-row">
+  <div class="side-card">
+    <img id="personImg" src="images/placeholder.jpg" alt="">
+    <h3 id="personName"></h3>
+  </div>
+
+  <div class="bio-card">
+    <h2>Biography</h2>
+    <p id="bio1"></p>
+    <p id="bio2"></p>
+    <p id="bio3"></p>
+  </div>
+
+  <div class="side-card" id="spouseCard"></div>
+</div>
+
+<h2 class="section-title">Children</h2>
+<div class="children-grid" id="childrenGrid"></div>
+
+<script>
+// ===== READ wives DATA SAVED IN LOCALSTORAGE =====
+// Make sure, on your main or wife page, you have already done:
+// localStorage.setItem("wivesData", JSON.stringify(wives));
+const wives = JSON.parse(localStorage.getItem("wivesData"));
+
+const params = new URLSearchParams(window.location.search);
+let id = parseInt(params.get("id"), 10);   // same param name
+let cid = parseInt(params.get("cid"), 10); // child index
+
+if (!id || id < 1 || id > wives.length) id = 1;
+const wid = id - 1;                        // real array index
+
+if (!wives || !wives[wid] || !wives[wid].children[cid]) {
+  document.body.innerHTML = "<h2 style='text-align:center;'>Child not found</h2>";
+  throw new Error("Invalid wid/cid");
+}
+
+const child = wives[wid].children[cid];
+// ===== FILL CHILD INFO =====
+document.getElementById("personName").textContent = child.name || "";
+
+document.getElementById("personImg").src =
+  child.img || "images/placeholder.jpg";
+
+document.getElementById("bio1").textContent = child.bio?.[0] || "";
+document.getElementById("bio2").textContent = child.bio?.[1] || "";
+document.getElementById("bio3").textContent = child.bio?.[2] || "";
+
+// ===== SPOUSE CARD =====
+document.getElementById("spouseCard").innerHTML = `
+  <img src="${child.spouseImg || 'images/placeholder.jpg'}" alt="">
+  <h3>${child.spouse || "—"}</h3>
+`;
+
+// ===== AGE CALC =====
+function calculateAge(dob){
+  if(!dob) return "";
+  const birth = new Date(dob);
+  if (isNaN(birth)) return "";
+  const today = new Date();
+  let age = today.getFullYear() - birth.getFullYear();
+  const m = today.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+    age--;
+  }
+  return age;
+}
+
+// ===== CHILDREN GRID (grandchildren) =====
+const grid = document.getElementById("childrenGrid");
+grid.innerHTML = "";
+
+if (Array.isArray(child.children)) {
+  child.children.forEach(c => {
+    const age = calculateAge(c.dob);
+    grid.innerHTML += `
+      <div class="child-card ${c.late ? "late" : ""}">
+        <img src="${c.img || 'images/placeholder.jpg'}" alt="">
+        <h4>${c.name}</h4>
+        ${c.dob ? `<p>DOB: ${c.dob}</p>` : ""}
+        ${age !== "" ? `<p>Age: ${age} years</p>` : ""}
+      </div>
+    `;
+  });
+} else {
+  const alive = (child.childrenCount || 0) - (child.late || 0);
+  for (let i = 1; i <= alive; i++) {
+    grid.innerHTML += `
+      <div class="child-card">
+        <img src="images/placeholder.jpg" alt="">
+        <h4>Child ${i}</h4>
+      </div>
+    `;
+  }
+  for (let i = 1; i <= (child.late || 0); i++) {
+    grid.innerHTML += `
+      <div class="child-card late">
+        <img src="images/placeholder.jpg" alt="">
+        <h4>Late Child</h4>
+      </div>
+    `;
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wife Biography & Children</title>
+<style>
+body{margin:0;padding:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#1b1e24,#3b3f47);color:white;}
+.back-btn{display:inline-block;margin:20px;padding:10px 18px;background:rgba(255,255,255,0.15);color:white;text-decoration:none;border-radius:8px;}
+.back-btn:hover{background:rgba(255,255,255,0.3);}
+.wife2-container{
+  width:90%;
+  max-width:1100px;
+  margin:40px auto;
+  display:flex;
+  gap:30px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+
+/* top image */
+.wife2-image img{
+  width:230px;
+  height:260px;
+  object-fit:cover;
+  border-radius:16px;
+  border:2px solid #e91a63;
+  box-shadow:0 4px 15px rgba(0,0,0,0.5);
+  display:block;
+  margin:0 auto;
+}
+
+.wife2-bio{
+  flex:1;
+  min-width:280px;
+  background:rgba(255,255,255,0.1);
+  padding:25px;
+  border-radius:16px;
+  backdrop-filter:blur(6px);
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  border:2px solid #e91a63;
+}
+.wife2-bio h1{margin-top:0;font-size:28px;color:#ffddaa;}
+.wife2-bio p{line-height:1.6;font-size:15px;margin-bottom:10px;}
+
+.kids-title{text-align:center;margin-top:30px;font-size:24px;color:#ffd9b3;}
+
+/* card grid */
+.kids-container{
+  width:90%;
+  max-width:1200px;
+  margin:25px auto 60px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.kid-card{
+  background:rgba(255,255,255,0.13);
+  border-radius:16px;
+  padding:18px;
+  text-align:center;
+  transition:0.3s;
+  backdrop-filter:blur(5px);
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  border:2px solid #e91a63;
+  min-height:260px;
+}
+
+.kid-card img{
+  width:100%;
+  max-height:170px;
+  object-fit:cover;
+  border-radius:12px;
+  border:3px solid #1a73e8;
+}
+
+.kid-card h3{margin:10px 0;color:#ffe6c6;font-size:17px;}
+.view-btn{display:inline-block;margin-top:8px;padding:8px 14px;text-decoration:none;background:#1a73e8;color:black;border-radius:8px;font-weight:bold;transition:0.3s;font-size:14px;}
+.view-btn:hover{background:#ffcf9b;}
+
+/* MOBILE: stack and shrink a bit */
+@media (max-width: 600px){
+  .wife2-container{
+    flex-direction:column;
+    align-items:center;
+    margin:20px auto;
+    gap:20px;
+  }
+  .wife2-bio{
+    width:100%;
+    padding:18px;
+  }
+  .wife2-bio h1{font-size:22px;}
+  .wife2-bio p{font-size:14px;}
+  .kids-title{font-size:20px;margin-top:15px;}
+  .kid-card{
+    padding:14px;
+    min-height:auto;
+  }
+  .kid-card h3{font-size:15px;}
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-btn">← Back to Family Tree</a>
+
+<div class="wife2-container">
+  <div class="wife2-image">
+    <img id="wifeImg" src="" alt="Wife Photo">
+  </div>
+  <div class="wife2-bio">
+    <h1 id="wifeName"></h1>
+    <p id="wifeBio1"></p>
+    <p id="wifeBio2"></p>
+  </div>
+</div>
+
+<h2 class="kids-title">Her Children</h2>
+<div class="kids-container" id="kidsContainer"></div>
+
+<script>
+// ===========================
+// FULL WIVES DATA WITH CHILDREN
+// ===========================
+const wives = [
+{
+  name:"Ya Tifen",
+  img:"images/wife1.jpg",
+  bio:["First wife.","No children."],
+  children:[]
+},
+{
+  name:"Ya Giwa",
+  img:"images/wife2.jpg",
+  bio:["Second wife.","No children."],
+  children:[]
+},
+{
+  name:"Ya Dare (Aisha)",
+  img:"images/wife3.jpg",
+  bio:["Third wife.","No children."],
+  children:[]
+},
+{
+  name: "Hajiya Naku",
+  img: "images/fatima naku.jpeg",
+  bio: ["Fourth wife.", "Mother of seven children."],
+  children: [
+    {
+      name: "Yatako (Maimuna)",
+      img: "images/child1.jpg",
+      link: "child.html?wid=4&cid=1",
+      spouse: "-",
+      childrenCount: 0,
+      late: 1,
+      bio: ["Yatako was the first child.", "He passed away early.", "Remembered fondly by the family."],
+      children: []
+    },
+    {
+      name: "Amina Abdulmalik Halidu Giwa (Yaya)",
+      img: "images/bigmommy.jpeg",
+      link: "child.html?wid=4&cid=2",
+      spouse: "Abdulmalik Giwa",
+      spouseImg: "images/bigmommy bae.jpeg",
+      childrenCount: 3,
+      late: 0,
+      bio: ["Amina Abdulmalik Halidu-Giwa was born on 30th May 1963. She is married to Maj. General Abdulmalik Halidu-Giwa (Rtd), Taimakon Nupe, and their marriage took place on 13th February 1981. She began her education at LCC Ijero Municipal School, Ebute Metta, Lagos, and continued at Government Girl’s College, Minna, Niger State, for her secondary education. She furthered her studies at the University of Sokoto (1988), the International Institute of Computer Science and Management in Pune, India (1990), and later earned additional qualifications from the University of Ghana (2000). She holds both B.A. and M.A. degrees. Professionally, she served with dedication at the Central Bank of Nigeria, from where she is now retired."],
+      children: [
+         {
+          name: "Suleiman Abdulmalik Halidu-Giwa",
+          img: "images/Uncle(Giwa).jpeg",
+          dob:"1982",
+          late: 0
+        },
+        {
+          name: "Hauwa Abdulmalik halidu- giwa",
+          img: "images/aunty(Giwa).jpeg",
+               dob:"1985",
+          late: 0
+        },
+        {
+          name: "Mohammed Bello Abdulmalik",
+          img: "images/uncle2(Bello).jpeg",
+               dob:"1991",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Muhammad Ahmed Shehu (Uncle Duwatsu)",
+      img: "images/uncle duwastu.jpeg",
+      link: "child.html?wid=4&cid=3",
+      spouse: "Hadiza Muhammad Shehu",
+      spouseImg: "images/mommy.jpeg",
+      childrenCount: 4,
+      late: 0,
+      bio: ["Mohammed Duwastu Ahmadu was born on 13th January 1966 and is married to Hadiza Sanda Ndayako, a union established on 28th January 2000. He began his education at Ijero Municipal Grammar School, Lagos, and later attended Zarumai Primary School. For secondary school, he studied at Barewa College, Zaria, and Government Secondary School, Suleja. He went on to obtain a Diploma in Personnel Management from Kaduna Polytechnic, followed by an HND in Marketing from Federal Polytechnic Birnin Kebbi, and later earned a Post Graduate Diploma in Management (PGDM) from Ahmadu Bello University, Zaria. He further achieved an MBA (Master of Business Administration). Professionally, he served as a civil servant and also worked in the banking sector, and is now retired."],
+      children: [
+        {
+          name: "Umar S Mohammed",
+          img: "images/big bro.jpeg",
+          dob: "2001-02-2",
+          late: 0
+        },
+        {
+          name: "Fatima N Mohammed",
+          img: "images/my sister.jpeg",
+          dob: "2003-03-6",
+          late: 0
+        },
+        {
+          name: "Zakariya Mohammed",
+          img: "images/zakiii.jpeg",
+          dob: "2007-01-14",
+          late: 0
+        },
+        {
+          name: "Azizullah Mohammed",
+          img: "images/azizzz.jpeg",
+          dob: "2009-01-24",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Ya Lamin (Hauwa)",
+      
+      link: "child.html?wid=4&cid=4",
+      spouse: "-",
+      childrenCount: 0,
+      late: 1,
+      bio: ["Ya Lamin passed away young.", "Remembered lovingly.", "No children."],
+      children: []
+    },
+    {
+      name: "Zainab Ahmed Shehu (Aunty Nana)",
+      img: "images/ya nana.jpeg",
+      link: "child.html?wid=4&cid=5",
+      spouse: "Adamu Abdullahi Sheshi",
+      spouseImg: "images/nana(bae).jpeg",
+      childrenCount: 4,
+      late: 0,
+      bio: ["Zainab Ahmed Shehu, born on 10th October 1971, is married to Alhaji Adamu Abdullahi Sheshi, a marriage that took place on 12th December 1996. She attended Zarumai Primary School for her foundational education and later proceeded to Federal Government Girls College, Bida for her secondary schooling. She further obtained a Diploma in Business Administration from Federal Polytechnic, Bida, and went on to earn a degree in Public Administration from Ibrahim Badamasi Babangida University, Lapai. She currently works as a civil servant with the Ministry of Commerce and Investment."],
+      children: [
+        {
+          name: "Aisha Adamu sheshi",
+          img: "images/aunty1(nana).jpeg",
+          dob: "1998",
+          late: 0
+        },
+        {
+          name: "Ahmad Adamu sheshi",
+          img: "images/Uncle(NANA).jpeg",
+          dob: "2001",
+          late: 0
+        },
+        {
+          name: "Fatima Adamu Sheshi",
+          img: "images/Aunty2(nana).jpeg",
+          dob: "2003",
+          late: 0
+        },
+        {
+          name: " Aisha Adamu Sheshi",
+          img: "images/aunty3(nana).jpeg",
+          dob: "2006",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Muhammad Ahmed Shehu (Uncle Bakudu)",
+      img: "images/unclebakudu.jpeg",
+      link: "child.html?wid=4&cid=6",
+      spouse: "Fatima Larai Muhammad",
+      spouseImg:"images/aunty fati(B).jpeg",
+      childrenCount: 3,
+      late: 0,
+      bio: ["full name : Mohammed Shehu Ahmed (Bakudu)  Baba  Aji Your wife’s full name : Fatima Larai  Mohammed Date of birth: 26th October 1973 Year of marriage: 2007 Primary school: chiroma,  Zarmai and Ndayako Secondary school: Government science college kutigi University: federal University of technology minna Graduated with : 2000 Your work :Nigerian Ports Authority" ],
+      children: [
+        {
+          name: "Ahmed Shehu Mohammed",
+          img: "images/ajiiiiii.jpeg",
+          dob: "2007",
+          late: 0
+        },
+        {
+          name: "Fatima Anisa Mohammed",
+          img: "images/aniss.jpeg",
+          dob: "2010",
+          late: 0
+        },
+        {
+          name: "Mohammed Alamin Mohammed",
+          img: "images/minmin.jpeg",
+          dob: "2013",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Amina Ahmed Shehu (Aunty Mama Suleja)",
+      img: "images/ya mama.jpeg",
+      link: "child.html?wid=4&cid=7",
+      spouse: "Muhammad Isah",
+      spouseImg: "images/aunty mama(bae).jpeg",
+      childrenCount: 4,
+      late: 0,
+      bio: ["Amina Shehu Ahmed, fondly known as Anty Mama, was born on 13th June 1976 and is married to Ahmed Yahaya Baba, a union that took place on 13th December 1996. She began her education at Ndayako Primary School, Bida, before continuing her secondary education at Old Airport Girls Secondary School and later Unity Government Secondary School, Bauchi. She proceeded to the College of Education, Zuba (FCT), where she obtained her NCE certificate. She is currently a businesswoman."],
+      children: [
+         {
+          name: "Neematullah Ahmed yahya",
+          img: "images/aunty1(MAMA).jpeg",
+          dob: "2020",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Ya Balaraba (Fatima)",
+     
+      link: "child.html?wid=4&cid=4",
+      spouse: "-",
+      childrenCount: 0,
+      late: 1,
+      bio: ["Ya Balaraba passed away young.", "Remembered lovingly.", "No children."],
+      children: []
+    },
+  ]
+},
+{
+  name: "Ya Aya",
+  img: "images/wife5.jpg",
+  bio: ["Fifth wife.", "No children."],
+  children: []
+},
+{
+  name: "Ya Uraira",
+  img: "images/wife6.jpg",
+  bio: ["Sixth wife.", "No children."],
+  children: []
+},
+{
+  name: "Hajiya Hassana",
+  img: "images/nnagihassana.jpeg",
+  bio: ["Seventh wife.", "Mother of eight children."],
+  children: [
+    {
+      name: "Aliyu Ahmed Shehu (Uncle Kpotu)",
+      img: "images/uncle kpotun.jpeg",
+      link: "child.html?wid=7&cid=1",
+      spouse: "Rakiya Yusuf",
+      spouseImg: "images/kpotun(bae).jpeg",
+      childrenCount: 8,
+      late: 0,
+      bio: ["Engr. Aliyu Shehu Ahmed is married to Halima Gogo Aliyu, a union that took place in January 2000. He began his early education at Ijaro Municipal School, Lagos, and continued at Capital School Minna before completing his primary studies at Zarumai Primary School Minna. He attended Barewa College, Zaria, and later Government Science College, Kagara for his secondary education. He proceeded to the Federal University of Technology, Minna, where he earned a Postgraduate Diploma (PGD) in Mechanical Engineering. He can be reached via 08056778201 or 08037876587."],
+      children: [
+         {
+          name: "Yahya Aliyu",
+          img: "images/abba(kpotun).jpeg",
+          dob: "2001",
+          late: 0
+        },
+        {
+          name: "Muhammad Aliyu",
+          img: "images/mohammed(kpotun).jpeg",
+          dob: "2003",
+          late: 0
+        },
+        {
+          name: "Aisha Aliyu",
+          img: "images/aisha(kpotun).jpeg",
+          dob: "2005",
+          late: 0
+        },
+        {
+          name: "Aliyu Aliyu",
+          img: "images/twin!(kpotn).jpeg",
+          dob: "2008",
+          late: 0
+        },
+        {
+          name: "Ahmed Aliyu",
+          img: "images/twin2(kpotun).jpeg",
+          dob: "2008",
+          late: 0
+        },
+        {
+          name: "Buhari Aliyu",
+          img: "images/buhari(kpotun).jpeg",
+          dob: "2015",
+          late: 0
+        },
+         {
+          name: "Amina Aliyu",
+          img: "images/amina(pkotun).jpeg",
+          dob: "2022",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Umar Ahmed Shehu (Uncle Baba)",
+      img: "images/ya baba.jpeg",
+      link: "child.html?wid=7&cid=2",
+      spouse: "Hauwa Bello",
+      spouseImg: "images/hauwa_bello.jpeg",
+      childrenCount: 6,
+      late: 1,
+      bio: ["Umar Shehu Ahmed, born on 30 April 1968, is married to three wives: Hauwa Umar Shehu, whom he married in February 1991; Maimuna Adamu, married on 1 January 2011; and Hauwa Muhammed, married on 28 March 2017. He began his education at Zarumai Primary School, then attended Bida Science Teacher College for his secondary education. He later studied at the National Open University, graduating with a Second-Class degree. He works with the National Identity Management Commission (NIMC)."],
+      children: [
+         {
+          name: "Fatima Umar Shehu",
+          img: "images/aunty1(nana).jpeg",
+          dob: "1992",
+          late: 0
+        },
+        {
+          name: "Amina Umar Shehu",
+          img: "images/aunty2(baba).jpeg",
+          dob: "1994",
+          late: 0
+        },
+        {
+          name: "Abdulmalik Umar Shehu",
+          img: "images/uncle1(baba).jpeg",
+          dob: "1996",
+          late: 0
+        },
+        {
+          name: "Balkisu Umar Shehu",
+          img: "images/aunty3(baba).jpeg",
+          dob: "2008",
+          late: 0
+        },
+        {
+          name: "Rahma Umar Shehu",
+          img: "images/aunty4(baba).jpeg",
+          dob: "2009",
+          late: 0
+        },
+        {
+          name: "Muhammad Umar Shehu",
+          img: "images/danjuma(baba).jpeg",
+          dob: "2001",
+          late: 1
+        }
+      ]
+    },
+    {
+      name: "Amina Ahmed Shehu (Aunty Talatu)",
+      img: "images/ya talatu.jpeg",
+      link: "child.html?wid=7&cid=3",
+      spouse: "Muhammad Isah",
+      spouseImg: "images/talatu(bae).jpeg",
+      childrenCount: 4,
+      late: 0,
+      bio: ["Amina Shehu Ahmed (Talatu), born on 26 January 1971, is married to Isah Muhammad Makpa, an Assistant Comptroller with the Nigeria Immigration Service. They married on 5 March 1992. She attended Gaskiya Primary School, Tudun Jikum, Zaria, and later continued her secondary education at Government Day Secondary School, Zaria, and WATC Dikko. She furthered her studies at the School of Health, Kaduna, as well as the College of Education, Kaduna, where she graduated with qualifications in Social Studies/Arabic and Medical Laboratory. She worked professionally as a teacher. Her contact number is 08030710388."],
+      children: [
+         {
+          name: "Fatima Muhammad isah",
+          img: "images/aunty1(talatu).jpeg",
+          dob: "1993",
+          late: 0
+        },
+        {
+          name: "Muhammed isah born",
+          img: "images/uncle(talatu).jpeg",
+          dob: "1994",
+          late: 0
+        },
+        {
+          name: "Aisha muhammed isah",
+          img: "images/aunty2(talatu).jpeg",
+          dob: "1997",
+          late: 0
+        },
+        {
+          name: "Amina muhammed isah",
+          img: "images/aunty3(talatu).jpeg",
+          dob: "1999",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Hanafi Ahmed Shehu (Uncle Danladi)",
+      img: "images/uncle dan.jpeg",
+      link: "child.html?wid=7&cid=4",
+      spouse: "Alfiyya Wada",
+      spouseImg: "images/alfiyya_wada.jpeg",
+      childrenCount: 4,
+      late: 1,
+      bio: ["Hanafi Shehu Ahmed, born on 1 April 1973, is married to Alfiyyah Usman Wada, and their marriage took place on 20 December 2003. His educational journey began at Chiroma Primary School, Minna, in 1980, after which he attended Zarumai Primary School, Minna (1980–1984) and later Ndayako Primary School, Bida (1984–1987). He proceeded to Ndayako Junior Secondary School, Bida (1987–1989) and later enrolled at Government Technical College, Minna (1990–1992). He holds multiple professional qualifications, including an NCE (Technical), a Diploma in CPT, a Diploma in Information Technology, and a Diploma in Management Technology. He is currently employed with the Nigerian Security Printing and Minting Plc, Lagos State."],
+      children: [
+         {
+          name: "First Child Name",
+          img: "images/bakudu_child1.jpeg",
+          dob: "",
+          late: 0
+        },
+        {
+          name: "Second Child Name",
+          img: "images/bakudu_child2.jpeg",
+          dob: "",
+          late: 0
+        },
+        {
+          name: "Third Child Name",
+          img: "images/bakudu_child3.jpeg",
+          dob: "",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Aisha Ahmed Shehu (Aunty Giwa)",
+      img: "images/ya giwa.jpeg",
+      link: "child.html?wid=7&cid=5",
+      spouse: "Aliyu (Ya Maikudi)",
+      spouseImg: "images/auntygiwa(bae).jpeg",
+      childrenCount: 7,
+      late: 1,
+      bio: ["Aisha Shehu Ahmed, born on 2 March 1975, is married to Alhaji Aliyu Mustafa Tsoida (Gadodamasu). Their marriage took place on 19 December 1997. She attended Zarumai Primary School, Ndayako Primary School, Bida, and later Hulul Azmi Sheikh Saeed School. Aisha is a dedicated businesswoman and a mother of seven children, with one late child. She can be contacted via 0703 852 2582."],
+      children: [
+         {
+          name: "Aisha Aliyu(Ummi)",
+          img: "images/ya ummi.jpeg",
+          dob: "2000",
+          late: 0
+        },
+        {
+          name: "Mustapha Aliyu",
+          img: "images/mustyyy(moneyy).jpeg",
+          dob: "2003",
+          late: 0
+        },
+        {
+          name: "Ahmad Aliyu(Ameer)",
+          img: "images/naibiiii.jpeg",
+          dob: "2005",
+          late: 0
+        },
+        {
+          name: "Fatima Aliyu(Zahra)",
+          img: "images/xarah.jpeg",
+          dob: "2008",
+          late: 0
+        },
+        {
+          name: "Maimuna Aliyu",
+          img: "images/hassana.jpeg",
+          dob: "2016",
+          late: 0
+        },
+        {
+          name: "Soffiya Aliyu",
+          img: "images/hussaina.jpeg",
+          dob: "2016",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Safiya Ahmed Shehu (Aunty Larai)",
+      img: "images/aunty safiyaa.jpeg",
+      link: "child.html?wid=7&cid=6",
+      spouse: "Late",
+      childrenCount: 8,
+      late: 3,
+      bio: ["Safiya Shehu Ahmed, born on 12 April 1977, was married to Late Mallam Hassan Imam, and their marriage took place on 25 December 2002. She began her education at Ndayako Primary School, Bida, and continued at Government Girls Secondary School (GGSS), Bida. Safiya can be reached through her phone number: 0703 419 8678."],
+      children: [
+         {
+          name: "Amina Hassan",
+          img: "images/larai1.jpeg",
+          dob: "2009-12-20",
+          late: 0
+        },
+        {
+          name: "Zainu abiden Hassan",
+          img: "images/larai2.jpeg",
+          dob: "2012-07-20",
+          late: 0
+        },
+        {
+          name: "Muhammed sultan Hassan",
+          img: "images/larai3.jpeg",
+          dob: "2014-11-28",
+          late: 0
+        },
+         {
+          name: "Hauwa Hassan",
+          img: "images/larai4.jpeg",
+          dob: "2015-10-9",
+          late: 0
+        },
+         {
+          name: "Khalifa Tijani Hassan",
+          img: "images/larai5.jpeg",
+          dob: "2020-11-28",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "Adamu Ahmed Shehu (Uncle Bala)",
+      img: "images/uncle bala.jpeg",
+      link: "child.html?wid=7&cid=7",
+      spouse: " Halima Bagudu (sadiya)",
+      spouseImg: "images/uncleb(bae).jpeg",
+      childrenCount: 4,
+      late: 0,
+      bio: ["Ahmed Adamu Shehu (Baba Adama Yan Egba) was born on 13 April 1979 and is married to Halima Bagudu (Sadiya) since 28 September 2012. He attended Ndayako Nursery and Primary School, Bida for his primary education and Government College, Bida, Niger State for secondary school. He later graduated with a BA from the Federal University of Technology (FUT). Ahmed currently works as an Engineer and Deputy Manager at Dangote Cement, Igbese, Ogun State."],
+      children: [
+         {
+          name: "Habib Adamu Shehu",
+          img: "images/first(uncleb).jpeg",
+          dob: "",
+          late: 0
+        },
+        {
+          name: "Maimuna Adamu Shehu",
+          img: "images/second(uncleb).jpeg",
+          dob: "",
+          late: 0
+        },
+        {
+          name: "Sayyadah Ahmed Shehu",
+          img: "images/third(uncleb).jpeg",
+          dob: "",
+          late: 0,
+        },
+           {
+          name: "",
+          img: "images/uncleb(last).jpeg",
+          dob: "",
+          late: 0
+        }
+        
+      ]
+    },
+    {
+      name: "Aisha Ahmed Shehu (Aunty Mama)",
+      img: "images/aunty mama.jpeg",
+      link: "child.html?wid=7&cid=8",
+      spouse: "Ibrahim",
+      spouseImg: "images/ya mama(kaduna bae).jpeg",
+      childrenCount: 5,
+      late: 0,
+      bio: ["Aisha Shehu Ahmed was born on 21 February 1981 and is married to Aminu Adamu since 2002. She attended Women Teacher College, Kaduna for her secondary education and later earned a Diploma in Management from Kaduna Polytechnic. She is currently engaged in business."],
+      children: [
+         {
+          name: "Fatima Aminu Adamu(imama)",
+          img: "images/imama1(mama).jpeg",
+          dob: "2003",
+          late: 0
+        },
+        {
+          name: "Aisha Aminu Adamu(nana)",
+          img: "images/nanakk(mama).jpeg",
+          dob: "2007",
+          late: 0
+        },
+        {
+          name: "Ahmadu Aminu Adamu(Aji)",
+          img: "images/aji(mama).jpeg",
+          dob: "2010",
+          late: 0
+        },
+        {
+          name: "Hauwa'u Adamu Aminu",
+          img: "images/hauwa(mama).jpeg",
+          dob: "2013",
+          late: 0
+        },
+        {
+          name: "Amina Aminu Adamu(Meena)",
+          img: "images/Amina(mama).jpeg",
+          dob: "2017",
+          late: 0
+        }
+      ]
+    }
+  ]
+},
+{
+  name: "Hajiya Iya",
+  img: "images/iya.jpeg",
+  bio: ["Eighth wife.", "Mother of nine children."],
+  children: [
+    {
+      name: "LATE Muhammad Ahmed Shehu (Uncle Danjuma)",
+      img: "images/ya danjuma.jpeg.jpg",
+      link: "child.html?wid=8&cid=1",
+      spouse: "-",
+      late: 0,
+      childrenCount: 0,
+      bio: ["Muhammad is the eldest child of Iya.", "Known for leadership."],
+      children: []
+    },
+    {
+      name: "Saidu Ahmed Shehu (Uncle Makun)",
+      img: "images/ya makun.jpg",
+      link: "child.html?wid=8&cid=2",
+      spouse: "Rabi shehu, Rakiya Yusuf And Adama gadzama",
+      spouseImg: "images/makuns.webp",
+      late: 0,
+      childrenCount: 8,
+      bio: ["Saidu is a dedicated father.", "Married to Rakiya Yusuf.", 
+      "Saidu Shehu Ahmed was born on 15th August 1974.He completed his primary education at Zarumai Model School and attended Government Day Secondary School for his secondary studies. He then graduated from the Nigerian Defence Academy and has since dedicated his life to military service. He currently holds the rank of Brigadier General and is serving in Borno State."],
+      children: [
+        { name: "Sumaiyya Saidu", dob: "2005", img: "images/Sumaiyya Saidu.jpg", late: 0 },
+        { name: "Amina Saidu Ahmed", dob: "2007", img: "images/Amina Saidu Ahmed.jpg", late: 0 },
+        { name: "Muhammad Saidu Ahmed", dob: "2008", img: "images/Muhammad Saidu Ahmed.jpg", late: 0 },
+        { name: "Ibrahim Saidu Ahmed", dob: "2011", img: "images/Ibrahim Saidu Ahmed.jpg", late: 0 },
+        { name: "Fatima Saidu Ahmed", dob: "2014", img: "images/Fatima Saidu Ahmed.jpg", late: 0 },
+        { name: "Ahmed Saidu Ahmed", dob: "2017", img: "images/Ahmed Saidu Ahmed.jpg", late: 0 },
+        { name: "Abubakar Sadeeq Saidu", dob: "2022", img: "images/Abubakar Sadeeq Saidu.jpg", late: 0 },
+        { name: "Fatima Saidu Ahmed", dob: "2024", img: "images/Fatima Saidu Ahmed2.jpg", late: 0 }
+      ]
+    },
+    {
+      name: "Alhaji Iya",
+      img: "images/Yahaya shehu Ahmed.jpg",
+      link: "child.html?wid=8&cid=3",
+      spouse: "Aishatu Abdullahi & Adama Muhammad wadata",
+      spouseImg: "images/alhajiiya.webp",
+      bio: ["Yahaya Shehu Ahmed was born on 15th March 1975. He is married to Aishatu Abdullahi and Adama Muhammad Wadata, with whom he has ten children. He attended Zarumai Model School for his primary education and Government Day Secondary School for his secondary education. He obtained an NCE certificate and has since worked as a civil servant. His dedication to both family and career is widely respected, and he remains active in his professional and community engagements. You can reach him at 08062822368."],
+      late: 0,
+      childrenCount: 10,
+      children: [
+        { name: "Ahmed Khadijat Yahaya", dob: "2002", img: "images/Ahmed Khadijat Yahaya.jpg", late: 0 },
+        { name: "Fatima Yahaya Ahmed", dob: "2003", img: "images/Fatima Yahaya Ahmed.jpg", late: 0 },
+        { name: "Hindu Yahaya Ahmed", dob: "2006", img: "images/Hindu Yahaya Ahmed.jpg", late: 0 },
+        { name: "Fatima Yahaya Ahmed", dob: "2007", img: "images/Fatima yahaya ahmed.jpg", late: 0 },
+        { name: "Habiba Yahaya Ahmed", dob: "2016", img: "images/Habiba Yahaya Ahmed.jpg", late: 0 },
+        { name: "Ruqayya Yahaya Ahmed", dob: "2015", img: "images/Ruqayya Yahaya Ahmed.jpg", late: 0 },
+        { name: "Ahmed Yahaya Ahmed", dob: "2017", img: "images/Ahmed Yahaya Ahmed.jpg", late: 0 },
+        { name: "Adama Yahaya Ahmed", dob: "2017", img: "images/Adama Yahaya Ahmed.jpg", late: 0 },
+        { name: "Fatima Yahaya Ahmed", dob: "2019", img: "images/Fatima yahaya ahmed2.jpg", late: 0 },
+        { name: "Mohammed Yahaya Ahmed", dob: "2024", img: "images/Mohammed Yahaya Ahmed.jpg", late: 0 }
+      ]
+    },
+    {
+      name: "Amina Shehu Ahmed(Antu)",
+      img: "images/auntyy amina(antu).jpeg",
+      link: "child.html?wid=8&cid=4",
+      spouse: "Muhammad Muhammad Kasim",
+      spouseImg: "images/aji.jpg",
+      bio: ["Amina Shehu Ahmed, also known as Ya’Antu, was born on December 12, 1977. She attended Zarumai Primary School in Minna for her primary education and continued her secondary education at Government Day Secondary School, Bida (G.D.S.S Bida). She pursued higher education at Bida Polytechnic and further specialized in Accounting at Ibrahim Badamasi Babangida University (IBB University), Lapai. Amina works as a civil servant in the Ministry of Finance.."],
+      late: 0,
+      childrenCount: 7,
+      children: [
+        { name: "Ahmad Muhammad", dob: "2002", img: "images/aji.jpg", late: 0 },
+        { name: "Aminu Muhammad", dob: "2004", img: "images/Aminu Muhammad.jpg", late: 0 },
+        { name: "Nasir Muhammad", dob: "2006", img: "images/nasir.jpg", late: 0 },
+        { name: "Idris Muhammad", dob: "2008", img: "images/idris.jpg", late: 0 },
+        { name: "Maryam Muhammad", dob: "2016", img: "images/maryam muhammad.jpg", late: 0 },
+        { name: "Fatima Ummulkhairi Muhammad", age: "2015", img: "images/ummu.jpg", late: 0 },
+        { name: "Kasim Imam Muhammad", dob: "2017", img: "images/imam.jpg", late: 0 }
+      ]
+    },
+    {
+      name: "Fatima Balaraba",
+      img: "images/ya balaraba.jpeg",
+      link: "child.html?wid=8&cid=5",
+      spouse: "Muhammad Tako",
+      spouseImg: "images/muhammad tako.jpg",
+      bio: ["Fatima Shehu Ahmad, daughter of Alhaji Muhammed Muhammed Tako, was born on April 12, 1979. She attended Zarumai Model School and Hilltop Model School for her primary education, followed by secondary education at Government Day Secondary School (G.D.S.S Bida) and Ndyako Bida. She pursued higher education at Ado Bayero University and the College of Education (CoE). Fatima sadly passed away on April 26, 2019."],
+      late: 0,
+      childrenCount: 5,
+      children: [
+        { name: "Muktar Muhammad Tako", dob: "2002", img: "images/Muktar Muhammad Tako.jpg", late: 0 },
+        { name: "Fatima Farida Muhammad", dob: "2006", img: "images/Fatima Farida Muhammad.jpg", late: 0 },
+        { name: "Maryam Muhammad", dob: "2008", img: "images/Maryam Muhammad.jpg", late: 0 },
+        { name: "Aisha Nabila Muhammad", dob: "2012", img: "images/Aisha Nabila Muhammad.jpg", late: 0 },
+        { name: "Ahmad Amir Muhammad", dob: "2018", img: "images/Ahmad Amir Muhammad.jpg", late: 0 }
+      ]
+    },
+    {
+      name: "Hauwa",
+      img: "images/aunty hauwaaaliyuu.jpeg",
+      link: "child.html?wid=8&cid=6",
+      spouse: "Aliyu",
+      spouseImg: "images/aliyu.jpeg",
+      bio: ["Hauwa Shehu Ahmad, daughter of Aliyu, was born on October 17, 1989. She began her education at Amana Nursery and Primary School in Bida, then attended Maryam Babangida Girls Science College in Minna for her secondary education. She pursued higher education at Bayero University, Kano. Hauwa sadly passed away on May 31, 2013.."],
+      late: 0,
+      childrenCount: 3,
+      children: [
+        { name: "Aisha Siddiqa Aliyu", dob: "2014", img: "images/Aisha Siddiqa Aliyu.jpg", late: 0 },
+        { name: "Ibrahim Aliyu", dob: "2015", img: "images/Ibrahim Aliyu.jpg", late: 0 },
+        { name: "Fatima Aliyu", dob: "2020", img: "images/Fatima Aliyu.jpg", late: 0 }
+      ]
+    },
+    {
+      name: "Nnagan",
+      img: "images/nnagan.jpg",
+      link: "child.html?wid=8&cid=7",
+      spouse: "Muhammad Ado",
+      spouseImg: "images/muhammad_ado.jpeg",
+      bio: ["Fatima Ahmed Shehu, daughter of Alhaji Ado Muhammad, was born on May 22, 1985. She began her education at Nadanyako Primary School in Bida and continued at Day Secondary School in Minna for her secondary education. She then attended the College of Education (C.O.E) in Minna, where she trained to be a teacher. Fatima is currently working as a civil servant in the Ministry of Education."],
+      late: 0,
+      childrenCount: 4,
+      children: [
+        { name: "Khadijat Muhammad Ado (Umma)", dob: "2009", img: "images/Khadijat muhammed Ado,umma.jpg", late: 0 },
+        { name: "Nafisa Muhammad Ado", dob: "2010", img: "images/Nafisa muhammed Ado.jpg", late: 0 },
+        { name: "Ahmed Muhammad Ado", dob: "2016", img: "images/Ahmed Ado.jpg", late: 0 },
+        { name: "Fatima Muhammad Ado (Hajiya Iya)", dob: "2022", img: "images/Fatima muhammed Ado,Hajiya iya.jpg", late: 0 }
+      ]
+    },
+    {
+      name: "Anty Habiba",
+      img: "images/aunty habiba.jpeg",
+      link: "child.html?wid=8&cid=8",
+      bio: ["Habiba Shehu Ahmed was born on 1st March and got married on 31st May 2013. She began her education at NECO Staff School and continued at G.G.U.C Kachako for her secondary studies. She furthered her education at Abdulkadir Kure University, where she earned her N.C.E. qualification. Habiba is currently engaged as a food vendor, balancing her professional work with her family life."],
+      late: 0,
+      childrenCount: 4,
+      children: [
+        { name: "Muhammad Al'amin Abdullahi", dob: "2014", img: "images/Muhammad Al'amin Abdullahi.jpg", late: 0 },
+        { name: "Sa'eed Abdullahi", dob: "2023", img: "images/habiba_child2.jpg", late: 1 },
+        { name: "Aisha Abdullahi", dob: "2022", img: "images/habiba_child3.jpg", late: 1 },
+        { name: "Baby", dob: "2023", img: "images/habiba_child4.jpg", late: 1 }
+      ]
+    },
+    {
+      name: "Nnafatima",
+      img: "images/anty nnafatima.jpeg",
+      link: "child.html?wid=8&cid=9",
+      spouse: "Muhammad Tako",
+      spouseImg: "images/Muhammad tako.jpg",
+      bio: ["Fatima Shehu Ahmad was born on 8th January 1994 and got married in 2019 to Alhaji Muhammed Muhammed. She began her education at NECO Staff School and continued at Hilltop Model School before attending Ibrahim Badamasi Babangida University (IBB University). Fatima is currently not working and is focused on raising herchildren. She can be reached at 0816 723 4458."],
+      late: 0,
+      childrenCount: 3,
+      children: [
+        { name: "Yusuf Ayan Muhammad", dob: "2025", img: "images/Yusuf Ayan Muhammed.jpg", late: 0 },
+        { name: "Ibrahim Khalil", dob: "2022", img: "images/Ibrahim Khalil.jpg", late: 0 },
+        { name: "Fatima Noor Muhammad", dob: "2025-10-", img: "images/Fatima Noor Muhammad.jpg", late: 0 }
+      ]
+    }
+  ]
+},
+{
+  name: "Talatu",
+  img: "images/wife9.jpg",
+  bio: ["Ninth wife.", "No children."],
+  children: []
+},
+{
+  name: "Nnagi Woro",
+  img: "images/Nnagiworo.jpeg",
+  bio: ["Tenth wife.", "Mother of two children."],
+  children: [
+    {
+      name: "Zainab S Ahmed (Gogoiye)",
+      img: "images/Zainab Shehu Ahmad.jpg",
+      link: "child.html?wid=10&cid=1",
+      spouse: "-",
+      childrenCount: 2,
+      late: 0,
+      bio: ["She is married to Liman Alhassan Mohammed, and was born on 16th May 1977. She got married on 5th March 1992. She began her early education at Bangiful Model Primary School, Katcha, where she studied from 1980 to 1986. She continued to Government Girls Secondary School, Katcha, between 1987 and 1990. In her commitment to furthering her Islamic education, she attended Madarasatul Nur’Faidah wa Tahfeez Li’Quran Islamic School, Wunangi, under Mallam Muhammad Jibril Alfa, from 2007 to 2011, where she obtained a Certificate in Qur’an Memorization. She is currently an entrepreneur, dedicated to her work and her family."],
+      children: [
+         {
+          name: "Alhassan Aliyu",
+          dob: "1993",
+          img: "images/Alhassan Aliyu.jpg",
+          late: 0
+        },
+        {
+          name: "Alhassan Tauheed",
+          img: "images/tauheed(alhassan).jpeg",
+          dob: "1995",
+          late: 0
+        },
+        {
+          name: "Maimuna Alhassan",
+          img: "images/maimuna(alhassan).jpeg",
+          dob: "1997",
+          late: 0
+        },
+         {
+          name: "Muhammad Shehu Alhassan",
+          img: "images/muhammed(alhassan).jpeg",
+          dob: "2002",
+          late: 0
+        },
+         {
+          name: "Ibrahim Liman Alhassan",
+          img: "images/ibrahim(alhassan).jpeg",
+          dob: "2006",
+          late: 0
+        },
+        {
+          name: "Aisha Alhassan",
+          img: "images/aisha(alhassan).jpeg",
+          dob: "2007",
+          late: 1
+        },
+        
+        
+      ]
+    },
+    {
+      name: "Umar Ahmed Shehu",
+      img: "images/ya estu.jpeg",
+      link: "child.html?wid=10&cid=2",
+      spouse: "Fatima",
+      spouseImg: "images/fatima.jpeg",
+      childrenCount: 8,
+      late: 0,
+      bio: ["Umar Sanda Shehu was born on 4th July 1975 and is married to Fatima Usman since 23rd December 2016. He attended Ndayako Primary School Bida and Government Technical College Minna for his early education. He furthered his studies at Federal Polytechnic Bauchi and Federal Polytechnic Nasarawa, graduating with a Lower Credit. He is currently employed with Dangote Cement, Ibese, Ogun State."],
+      children: [
+         {
+          name: "Ahmed shehu umar",
+          dob: "2015",
+          img: "images/ahmed(estu).jpeg",
+          late: 0
+        },
+        {
+          name: "Mustapha shehu umar",
+          img: "images/musty(estu).jpeg",
+          dob: "2019",
+          late: 0
+        },
+        {
+          name: "Amina shehu umar ",
+          img: "images/amina(estu).jpeg",
+          dob: "2021",
+          late: 0
+        }
+        
+      ]
+    }
+  ]
+},
+{
+  name: "Hajiya Rakiya",
+  img: "images/hajiya rakiya.jpeg",
+  bio: ["Eleventh wife.", "Mother of two children."],
+  children: [
+    {
+      name: "Rakiya Ahmed Shehu",
+      img: "images/aunt rakiyaa.jpeg",
+      link: "child.html?wid=11&cid=1",
+      spouse: "Muhammad Raji",
+      spouseImg: "images/muhammad_raji.jpeg",
+      childrenCount: 5,
+      late: 0,
+      bio: ["Rakiya Shehu Ahmad was born on 11th February 1982 and married Mal. Muhammad Raji on 29th February 2007. She attended Amana Nursery and Primary School Bida and Government Girls Secondary School Bida, before completing her studies at the College of Education Minna."],
+      children: [
+         {
+          name: "AbdulHakim Muhammad Raji",
+          img: "images/abdulhakim(rakiya).jpeg",
+          dob:"2014",
+          late: 0
+        },
+        {
+          name: "Aisha Muhammad Raji",
+          img: "images/rakiya(second).jpeg",
+          dob:"2016",
+          late: 0
+        },
+        {
+          name: "Fatima Muhammad Raji",
+          img: "images/rakiya(third).jpeg",
+          dob:"2014",
+          late: 0
+        },
+        {
+          name: "Hassan Muhammad Raji",
+          img: "images/twin1(rakiya).jpeg",
+          dob:"2018",
+          late: 0
+        },
+
+        {
+          name: "Hussaini Muhammad Raji",
+          img: "images/twin2(rakiya).jpeg",
+           dob:"2018",
+          late: 0
+        },
+
+
+      ]
+    },
+    {
+      name: "Aisha Ahmed Shehu (Aunty Ngogo)",
+      img: "images/aunty ngongo.jpeg",
+      link: "child.html?wid=11&cid=2",
+      spouse: "Muhammad Abubakar Ndajiya",
+      spouseImg: "images/ngnogo(bae).jpeg",
+      childrenCount: 6,
+      late: 0,
+      bio: ["Aisha Shehu Ahmad was born on 23rd January 1980 and married Mohammad Abubakar Ndajiya on 22nd June 2001. She attended Sabongida Primary School Bida for her early education, then proceeded to GGC Kontagora, GGSS, and Army Day Secondary School Bida. She later graduated from Federal Polytechnic Bida with an H.N.D. Aisha is currently a businesswoman."],
+      children: [
+         {
+          name: "Al-ameen Abubakar",
+          img: "images/nngogo(first).jpeg",
+          late: 0
+        },
+        {
+          name: "Ahmad Abubakar",
+          img: "images/second(ngogo).jpeg",
+          late: 0
+        },
+        {
+          name: "Aminra Abubakar",
+          img: "images/third(ngogo).jpeg",
+          late: 0
+        },
+        {
+          name: "Habibullahi Abubakar",
+          img: "images/fourth(ngogo).jpeg",
+          late: 0
+        },
+        {
+          name: "Yahya Abubakar",
+          img: "images/nngogo(fifth).jpeg",
+          late: 0
+        },
+        {
+          name: "Abdullahi Abubakar",
+          img: "images/last(ngongo).jpeg",
+          late: 0
+        },
+
+      ]
+    }
+  ]
+},
+{
+  name: "Ya Zwade",
+  img: "images/wife12.jpg",
+  bio: ["Twelfth wife.", "Mother of one child."],
+  children: [
+    {
+      name: "Maimuna Ahmed Shehu (Ya Tako)",
+      img: "images/child1.jpg",
+      link: "child.html?wid=12&cid=1",
+      spouse: "-",
+      childrenCount: 1,
+      late: 0,
+      bio: ["Maimuna is the only child of Ya Zwade.", "Respected in the family.Maimuna Shehu Ahmed (Yatako) was born in 1960 and married Alhaji Adamu Jibril in 1976."],
+      children: [
+         {
+          name: "First Child Name",
+          img: "images/bakudu_child1.jpeg",
+          late: 0
+        },
+        {
+          name: "Second Child Name",
+          img: "images/bakudu_child2.jpeg",
+          late: 0
+        },
+        {
+          name: "Third Child Name",
+          img: "images/bakudu_child3.jpeg",
+          late: 0
+        }
+      ]
+    }
+  ]
+},
+{
+  name: "Hajiya Yagidi",
+  img: "images/ya gidi.jpeg",
+  bio: ["Thirteenth wife.", "Mother of four children."],
+  children: [
+    {
+      name: "Hauwa Ahmed Shehu (Nnaye)",
+      img: "images/aunty hauwaa(yagidi).jpeg",
+      link: "child.html?wid=13&cid=1",
+      spouse: "Hussaini",
+      spouseImg: "images/nnaye(bae).jpeg",
+      childrenCount: 2,
+      late: 1,
+      bio: ["Hauwa Shehu Ahmed was born on 18th September 1988. She got married to Hussaine on 23rd December 2016. She began her early education at Federal Staff Nursery and Primary School, Minna, before proceeding to Government Day Secondary School for her secondary studies. Hauwa later attended the Justice Fati Lami Abubakar Institute for Legal and Administrative Studies, where she furthered her academic qualifications. She is currently engaged in business and continues to balance her entrepreneurial activities with family responsibilities."],
+      children: [
+         {
+          name: "Salim hussaini Umar",
+          img: "images/Salim hussaini Umar.jpg",
+          dob: "2019"
+        },
+        {
+          name: "Fatima hussaini Umar(anisa)",
+          img: "images/Fatima hussaini Umar(anisa).jpg",
+          dob: "2021"
+        }
+      ]
+    },
+    {
+      name: "Habib Ahmed Shehu (Baman)",
+      img: "images/Baban.jpg",
+      link: "child.html?wid=13&cid=2",
+      late: 0,
+      bio: ["Habib Shehu Ahmad was born on June 5th, 1991. He began his early education at Sada International Nursery and Primary School, Bida, where he studied from 2002 to 2007. He continued to Government Day Junior Secondary School, Minna, between 2007 and 2009, and later completed his senior secondary education at Government College Bida from 2009 to 2011. Habib did not attend any tertiary institution. He sadly passed away on February 4th, 2012, leaving behind cherished memories in the hearts of his family and loved ones."],
+      children: []
+    },
+    {
+      name: "Hauwa Ahmed Shehu (Hajiya Kulu)",
+      img: "images/aunty hauwaa(yagidi2).jpeg",
+      link: "child.html?wid=13&cid=3",
+      spouse: "-",
+      childrenCount: 1,
+      late: 0,
+      bio: ["Hauwa Shehu Ahmed was born on January 3rd, 1994. She began her education at Sada International Nursery and Primary School, Bida, which she attended from 2004 to 2009. She proceeded to Model Secondary School, Bida, for her junior secondary education, and later completed her senior secondary schooling at Government Girls Secondary School, Bida, between 2012 and 2014. In 2015/2016, she enrolled in the School of Basic Remedial Studies (SBRS), Funtua, where she completed a remedial programme before gaining admission into Ahmadu Bello University, Zaria. From 2016 to 2020, she studied under the Faculty of Life Sciences and earned a Bachelor of Science degree in Biology, graduating with a Third Class. Hauwa can be contacted via phone at 0913 062 7913."],
+      children: [
+         {
+          name: "Rayyan mustpha Ibrahim",
+          img: "images/Rayyan mustpha Ibrahim.jpg",
+          dob: "2023",
+          late: 0
+        }
+      ]
+    },
+    {
+      name: "ABUBAKAR SHEHU Ahmad",
+      img: "images/ABUBAKAR SHEHU Ahmad.jpg",
+      link: "child.html?wid=13&cid=4",
+      bio: ["Abubakar Shehu Ahmad was born on 16th March 1998 and is currently single. His early education began at Umaru Sanda Nursery and Primary School, Bida, before continuing at Adeyemo Nursery and Primary School, Kaduna, between 2006 and 2011. He proceeded to Government College Bida for his secondary education from 2011 to 2018, where he served as the Library Prefect. In 2018/2019, Abubakar attended the School of Basic Remedial Studies (SBRS), Funtua, after which he gained admission into Ahmadu Bello University, Zaria. From 2019 to 2023, he studied Glass and Silicate Technology under the Faculty of Engineering and graduated with a PASS degree. During his time in the university, he held the position of Ambassador and Class Representative of the Society of Glass and Silicate Technology, Ahmadu Bello University, Zaria. Abubakar is currently not employed. His hobbies include playing football, particularly as a midfielder. He can be reached via phone at 0816 921 7905 or by email at shehuahmadabubakar4@gmail.com"],
+      children: []
+    }
+  ]
+}
+];
+
+// ===== SAVE TO LOCALSTORAGE =====
+localStorage.setItem("wivesData", JSON.stringify(wives));
+
+// ===== FILL WIFE & CHILDREN ON PAGE =====
+const params = new URLSearchParams(window.location.search);
+let id = parseInt(params.get("id"));
+if(!id || id<1 || id>wives.length) id=1;
+const wife = wives[id-1];
+
+document.getElementById("wifeImg").src = wife.img;
+document.getElementById("wifeName").textContent = wife.name;
+document.getElementById("wifeBio1").textContent = wife.bio[0];
+document.getElementById("wifeBio2").textContent = wife.bio[1];
+
+const kidsContainer = document.getElementById("kidsContainer");
+wife.children.forEach((child, index) => {
+  const card = document.createElement("div");
+  card.className = "kid-card";
+
+  const childUrl = `child.html?id=${id}&cid=${index}`;
+
+  card.innerHTML = `
+    <img src="${child.img}" alt="${child.name}">
+    <h3>${child.name}</h3>
+    <a href="${childUrl}" class="view-btn">View Profile</a>
+  `;
+  kidsContainer.appendChild(card);
+});
+</script>
+</body>
+</html>
