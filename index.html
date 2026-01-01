@@ -131,14 +131,24 @@ footer {
 @media (max-width: 768px) {
 
   .tree {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     aspect-ratio: auto;
     height: auto;
   }
 
   .center-person {
     position: relative;
+    left: auto;
+    top: auto;
     transform: none;
-    margin: 20px auto 30px;
+    margin: 20px auto 30px auto;
+    width: 90%;
+    max-width: 340px;
   }
 
   .line {
@@ -146,11 +156,9 @@ footer {
   }
 
   .wife {
-    position: relative;
-    transform: none;
-    width: 90%;
-    max-width: 320px;
-    margin: 15px auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 }
 </style>
