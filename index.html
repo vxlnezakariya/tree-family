@@ -127,38 +127,21 @@ footer {
   cursor: pointer;
 }
 
-/* ================= MOBILE FIX ================= */
+/* ================= MOBILE TWEAKS ================= */
 @media (max-width: 768px) {
-
-  .tree {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    aspect-ratio: auto;
-    height: auto;
-  }
-
   .center-person {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    margin: 20px auto 30px auto;
-    width: 90%;
-    max-width: 340px;
+    width: 140px;
   }
-
-  .line {
-    display: none;
+  .center-person img {
+    width: 80px;
+    height: 80px;
   }
-
   .wife {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    width: 90px;
+  }
+  .wife img {
+    width: 50px;
+    height: 50px;
   }
 }
 </style>
@@ -211,27 +194,33 @@ const wives = [
 const tree = document.getElementById("tree");
 
 function drawWives() {
+  // Clear old wives and lines
   tree.querySelectorAll(".wife, .line").forEach(e => e.remove());
 
   const isMobile = window.innerWidth <= 768;
   const rect = tree.getBoundingClientRect();
   const cx = rect.width / 2;
   const cy = rect.height / 2;
-  const radius = Math.min(rect.width, rect.height) / 2 - 100;
+
+  // Reduce radius for mobile
+  const radius = isMobile ? Math.min(rect.width, rect.height) / 2 - 60 : Math.min(rect.width, rect.height) / 2 - 100;
+  const cardSize = isMobile ? 90 : 140;
+  const imgSize = isMobile ? 50 : 70;
 
   wives.forEach((wife, i) => {
+    const angle = (2 * Math.PI / wives.length) * i - Math.PI / 2;
 
+    // Draw line (desktop only)
     if (!isMobile) {
-      const angle = (2 * Math.PI / wives.length) * i - Math.PI / 2;
       const line = document.createElement("div");
       line.className = "line";
       line.style.height = radius + "px";
       line.style.transform = `rotate(${angle * 180 / Math.PI}deg)`;
       tree.appendChild(line);
-
-      var x = cx + radius * Math.cos(angle);
-      var y = cy + radius * Math.sin(angle);
     }
+
+    const x = cx + radius * Math.cos(angle);
+    const y = cy + radius * Math.sin(angle);
 
     const card = document.createElement("a");
     card.href = `wife.html?id=${i+1}`;
@@ -240,19 +229,20 @@ function drawWives() {
 
     const div = document.createElement("div");
     div.className = "wife";
-    div.innerHTML = `<img src="${wife.img}"><h4>${wife.name}</h4>`;
+    div.style.width = cardSize + "px";
+    div.style.height = "auto";
+    div.innerHTML = `<img src="${wife.img}" style="width:${imgSize}px;height:${imgSize}px;"><h4>${wife.name}</h4>`;
 
-    if (!isMobile) {
-      card.style.position = "absolute";
-      card.style.left = x + "px";
-      card.style.top = y + "px";
-    }
+    card.style.position = "absolute";
+    card.style.left = x + "px";
+    card.style.top = y + "px";
 
     card.appendChild(div);
     tree.appendChild(card);
   });
 }
 
+// Initial draw
 drawWives();
 window.addEventListener("resize", drawWives);
 
