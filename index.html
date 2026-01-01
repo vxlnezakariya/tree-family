@@ -62,12 +62,14 @@ footer {
   padding: 20px;
   z-index: 3;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .center-person img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 /* ---------- Wives ---------- */
@@ -79,7 +81,6 @@ footer {
   border-radius: 12px;
   padding: 10px;
   text-align: center;
-  transform: translate(-50%,-50%);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
@@ -87,6 +88,7 @@ footer {
   width: 70px;
   height: 70px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 /* ---------- Lines ---------- */
@@ -129,16 +131,35 @@ footer {
 
 /* ================= MOBILE TWEAKS ================= */
 @media (max-width: 768px) {
-  .center-person {
-    width: 140px;
+  .tree {
+    max-width: 600px;
+    margin: 20px auto;
   }
+
+  .center-person {
+    width: 150px;
+    padding: 12px;
+  }
+
   .center-person img {
     width: 80px;
     height: 80px;
   }
-  .wife {
-    width: 90px;
+
+  .center-person h3 {
+    font-size: 14px;
   }
+
+  .center-person div {
+    font-size: 12px;
+  }
+
+  .wife {
+    width: 100px;
+    padding: 8px;
+    font-size: 11px;
+  }
+
   .wife img {
     width: 50px;
     height: 50px;
@@ -195,55 +216,54 @@ const tree = document.getElementById("tree");
 
 function drawWives() {
   // Clear old wives and lines
-  tree.querySelectorAll(".wife, .line").forEach(e => e.remove());
+  tree.querySelectorAll(".wife, .line, .wife-link").forEach(e => e.remove());
 
-  const isMobile = window.innerWidth <= 768;
   const rect = tree.getBoundingClientRect();
   const cx = rect.width / 2;
   const cy = rect.height / 2;
 
-  // Reduce radius for mobile
-  const radius = isMobile ? Math.min(rect.width, rect.height) / 2 - 60 : Math.min(rect.width, rect.height) / 2 - 100;
-  const cardSize = isMobile ? 90 : 140;
-  const imgSize = isMobile ? 50 : 70;
+  const isMobile = window.innerWidth <= 768;
+
+  // Radius shrinks slightly on mobile so everything fits
+  const radius = (Math.min(rect.width, rect.height) / 2) - (isMobile ? 80 : 120);
 
   wives.forEach((wife, i) => {
     const angle = (2 * Math.PI / wives.length) * i - Math.PI / 2;
 
-    // Draw line (desktop only)
-    if (!isMobile) {
-      const line = document.createElement("div");
-      line.className = "line";
-      line.style.height = radius + "px";
-      line.style.transform = `rotate(${angle * 180 / Math.PI}deg)`;
-      tree.appendChild(line);
-    }
+    // Draw line from center to wife
+    const line = document.createElement("div");
+    line.className = "line";
+    line.style.height = radius + "px";
+    line.style.transform = `rotate(${angle * 180 / Math.PI}deg)`;
+    tree.appendChild(line);
 
     const x = cx + radius * Math.cos(angle);
     const y = cy + radius * Math.sin(angle);
 
-    const card = document.createElement("a");
-    card.href = `wife.html?id=${i+1}`;
-    card.style.textDecoration = "none";
-    card.style.color = "inherit";
+    const link = document.createElement("a");
+    link.href = `wife.html?id=${i+1}`;
+    link.className = "wife-link";
+    link.style.position = "absolute";
+    // center the card on (x, y)
+    link.style.left = x + "px";
+    link.style.top = y + "px";
+    link.style.transform = "translate(-50%, -50%)";
 
     const div = document.createElement("div");
     div.className = "wife";
-    div.style.width = cardSize + "px";
-    div.style.height = "auto";
-    div.innerHTML = `<img src="${wife.img}" style="width:${imgSize}px;height:${imgSize}px;"><h4>${wife.name}</h4>`;
+    div.innerHTML = `
+      <img src="${wife.img}" alt="">
+      <h4>${wife.name}</h4>
+      <p>Born: 19xx</p>
+    `;
 
-    card.style.position = "absolute";
-    card.style.left = x + "px";
-    card.style.top = y + "px";
-
-    card.appendChild(div);
-    tree.appendChild(card);
+    link.appendChild(div);
+    tree.appendChild(link);
   });
 }
 
 // Initial draw
-drawWives();
+window.addEventListener("load", drawWives);
 window.addEventListener("resize", drawWives);
 
 /* Modal */
