@@ -40,12 +40,14 @@ body{
   padding:15px;
   text-align:center;
   border:2px solid #e91a63;
+  box-sizing:border-box;    /* keep size stable on small screens [web:41][web:42] */
 }
 .side-card img{
   width:100%;
-  max-height:260px;
-  object-fit:cover;
+  height:260px;
+  object-fit:cover;         /* fill box and crop extra [web:4][web:7] */
   border-radius:12px;
+  display:block;
 }
 
 /* bio in the center */
@@ -54,6 +56,7 @@ body{
   border-radius:16px;
   padding:20px;
   border:2px solid #ffd9b3;
+  box-sizing:border-box;
 }
 .bio-card h2{
   margin-top:0;
@@ -89,6 +92,7 @@ body{
   text-align:center;
   border:2px solid #1a73e8;
   transition:0.3s;
+  box-sizing:border-box;
 }
 .child-card:hover{
   transform:translateY(-4px);
@@ -99,9 +103,10 @@ body{
 
 .child-card img{
   width:100%;
-  max-height:220px;
-  object-fit:cover;
+  height:220px;
+  object-fit:cover;          /* uniform image boxes [web:4][web:7] */
   border-radius:14px;
+  display:block;
 }
 .child-card h4{
   margin:10px 0 4px;
@@ -114,14 +119,14 @@ body{
   color:#ffd9b3;
 }
 
-/* MOBILE */
+/* TABLETS + MOBILE */
 @media (max-width: 768px){
   .profile-row{
     grid-template-columns:1fr;
     gap:15px;
   }
   .side-card img{
-    max-height:220px;
+    height:220px;
   }
   .bio-card{
     padding:16px;
@@ -138,18 +143,31 @@ body{
   }
   .children-grid{
     gap:14px;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
   }
   .child-card{
     padding:12px;
   }
   .child-card img{
-    max-height:200px;
+    height:200px;
   }
   .child-card h4{
     font-size:15px;
   }
   .child-card p{
     font-size:12px;
+  }
+}
+
+/* VERY SMALL PHONES */
+@media (max-width: 480px){
+  body{
+    font-size:14px;
+  }
+  .profile-row,
+  .children-grid{
+    width:95%;
+    margin:10px auto 25px auto;
   }
 }
 </style>
@@ -179,7 +197,7 @@ body{
 
 <script>
 // ===== READ wives DATA SAVED IN LOCALSTORAGE =====
-// Make sure, on your main or wife page, you have already done:
+// On your main or wife page, ensure:
 // localStorage.setItem("wivesData", JSON.stringify(wives));
 const wives = JSON.parse(localStorage.getItem("wivesData"));
 
@@ -187,18 +205,23 @@ const params = new URLSearchParams(window.location.search);
 let id = parseInt(params.get("id"), 10);   // same param name
 let cid = parseInt(params.get("cid"), 10); // child index
 
+if (!wives || !Array.isArray(wives)) {
+  document.body.innerHTML = "<h2 style='text-align:center;'>Data not found</h2>";
+  throw new Error("wivesData missing");
+}
+
 if (!id || id < 1 || id > wives.length) id = 1;
 const wid = id - 1;                        // real array index
 
-if (!wives || !wives[wid] || !wives[wid].children[cid]) {
+if (!wives[wid] || !wives[wid].children || !wives[wid].children[cid]) {
   document.body.innerHTML = "<h2 style='text-align:center;'>Child not found</h2>";
   throw new Error("Invalid wid/cid");
 }
 
 const child = wives[wid].children[cid];
+
 // ===== FILL CHILD INFO =====
 document.getElementById("personName").textContent = child.name || "";
-
 document.getElementById("personImg").src =
   child.img || "images/placeholder.jpg";
 

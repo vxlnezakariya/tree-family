@@ -100,6 +100,17 @@ body{margin:0;padding:0;font-family:Arial,sans-serif;background:linear-gradient(
   }
   .kid-card h3{font-size:15px;}
 }
+
+
+
+@media (max-width: 600px){
+  body{
+    font-size: 14px;
+  }
+  .kids-container{
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
 </style>
 </head>
 <body>
@@ -405,15 +416,15 @@ const wives = [
       name: "Umar Ahmed Shehu (Uncle Baba)",
       img: "images/ya baba.jpeg",
       link: "child.html?wid=7&cid=2",
-      spouse: "Hauwa Bello",
-      spouseImg: "images/hauwa_bello.jpeg",
+      spouse: "Maimuna Adamu & Hauwa umar shehu",
+      spouseImg: "images/bbbbbbbbbb.jpeg",
       childrenCount: 6,
       late: 1,
       bio: ["Umar Shehu Ahmed, born on 30 April 1968, is married to three wives: Hauwa Umar Shehu, whom he married in February 1991; Maimuna Adamu, married on 1 January 2011; and Hauwa Muhammed, married on 28 March 2017. He began his education at Zarumai Primary School, then attended Bida Science Teacher College for his secondary education. He later studied at the National Open University, graduating with a Second-Class degree. He works with the National Identity Management Commission (NIMC)."],
       children: [
          {
           name: "Fatima Umar Shehu",
-          img: "images/aunty1(nana).jpeg",
+          img: "images/aunty1(baba).jpeg",
           dob: "1992",
           late: 0
         },
@@ -702,7 +713,7 @@ const wives = [
     },
     {
       name: "Saidu Ahmed Shehu (Uncle Makun)",
-      img: "images/ya makun.jpg",
+      img: "images/unclemakun.jpeg",
       link: "child.html?wid=8&cid=2",
       spouse: "Rabi shehu, Rakiya Yusuf And Adama gadzama",
       spouseImg: "images/makuns.webp",
@@ -717,7 +728,7 @@ const wives = [
         { name: "Ibrahim Saidu Ahmed", dob: "2011", img: "images/Ibrahim Saidu Ahmed.jpg", late: 0 },
         { name: "Fatima Saidu Ahmed", dob: "2014", img: "images/Fatima Saidu Ahmed.jpg", late: 0 },
         { name: "Ahmed Saidu Ahmed", dob: "2017", img: "images/Ahmed Saidu Ahmed.jpg", late: 0 },
-        { name: "Abubakar Sadeeq Saidu", dob: "2022", img: "images/Abubakar Sadeeq Saidu.jpg", late: 0 },
+        { name: "Abubakar Sadeeq Saidu", dob: "2022", img: "images/Abubakar sadeeq Saidu.jpg", late: 0 },
         { name: "Fatima Saidu Ahmed", dob: "2024", img: "images/Fatima Saidu Ahmed2.jpg", late: 0 }
       ]
     },
@@ -731,16 +742,16 @@ const wives = [
       late: 0,
       childrenCount: 10,
       children: [
-        { name: "Ahmed Khadijat Yahaya", dob: "2002", img: "images/Ahmed Khadijat Yahaya.jpg", late: 0 },
-        { name: "Fatima Yahaya Ahmed", dob: "2003", img: "images/Fatima Yahaya Ahmed.jpg", late: 0 },
-        { name: "Hindu Yahaya Ahmed", dob: "2006", img: "images/Hindu Yahaya Ahmed.jpg", late: 0 },
+        { name: "Ahmed Khadijat Yahaya", dob: "2002", img: "images/Ahmed Saidu Ahmed.jpg", late: 0 },
+        { name: "Fatima Yahaya Ahmed", dob: "2003", img: "images/Fatima yahaya ahmed.jpg", late: 0 },
+        { name: "Hindu Yahaya Ahmed", dob: "2006", img: "images/Hindu yahaya Ahmed.jpg", late: 0 },
         { name: "Fatima Yahaya Ahmed", dob: "2007", img: "images/Fatima yahaya ahmed.jpg", late: 0 },
         { name: "Habiba Yahaya Ahmed", dob: "2016", img: "images/Habiba Yahaya Ahmed.jpg", late: 0 },
-        { name: "Ruqayya Yahaya Ahmed", dob: "2015", img: "images/Ruqayya Yahaya Ahmed.jpg", late: 0 },
-        { name: "Ahmed Yahaya Ahmed", dob: "2017", img: "images/Ahmed Yahaya Ahmed.jpg", late: 0 },
-        { name: "Adama Yahaya Ahmed", dob: "2017", img: "images/Adama Yahaya Ahmed.jpg", late: 0 },
+        { name: "Ruqayya Yahaya Ahmed", dob: "2015", img: "images/Ruqayya yahaya Ahmed.jpg", late: 0 },
+        { name: "Ahmed Yahaya Ahmed", dob: "2017", img: "images/Ahmed yahaya ahmed.jpg", late: 0 },
+        { name: "Adama Yahaya Ahmed", dob: "2017", img: "images/Adama yahaya Ahmed.jpg", late: 0 },
         { name: "Fatima Yahaya Ahmed", dob: "2019", img: "images/Fatima yahaya ahmed2.jpg", late: 0 },
-        { name: "Mohammed Yahaya Ahmed", dob: "2024", img: "images/Mohammed Yahaya Ahmed.jpg", late: 0 }
+        { name: "Mohammed Yahaya Ahmed", dob: "2024", img: "images/Mohammed yahaya Ahmed.jpg", late: 0 }
       ]
     },
     {
@@ -757,7 +768,7 @@ const wives = [
         { name: "Aminu Muhammad", dob: "2004", img: "images/Aminu Muhammad.jpg", late: 0 },
         { name: "Nasir Muhammad", dob: "2006", img: "images/nasir.jpg", late: 0 },
         { name: "Idris Muhammad", dob: "2008", img: "images/idris.jpg", late: 0 },
-        { name: "Maryam Muhammad", dob: "2016", img: "images/maryam muhammad.jpg", late: 0 },
+        { name: "Maryam Muhammad", dob: "2016", img: "images/Maryam Muhammad.jpg", late: 0 },
         { name: "Fatima Ummulkhairi Muhammad", age: "2015", img: "images/ummu.jpg", late: 0 },
         { name: "Kasim Imam Muhammad", dob: "2017", img: "images/imam.jpg", late: 0 }
       ]
@@ -766,13 +777,13 @@ const wives = [
       name: "Fatima Balaraba",
       img: "images/ya balaraba.jpeg",
       link: "child.html?wid=8&cid=5",
-      spouse: "Muhammad Tako",
-      spouseImg: "images/muhammad tako.jpg",
+      spouse: "Muhammad Tanko",
+      spouseImg: "images/Muhammad tako.jpg",
       bio: ["Fatima Shehu Ahmad, daughter of Alhaji Muhammed Muhammed Tako, was born on April 12, 1979. She attended Zarumai Model School and Hilltop Model School for her primary education, followed by secondary education at Government Day Secondary School (G.D.S.S Bida) and Ndyako Bida. She pursued higher education at Ado Bayero University and the College of Education (CoE). Fatima sadly passed away on April 26, 2019."],
       late: 0,
       childrenCount: 5,
       children: [
-        { name: "Muktar Muhammad Tako", dob: "2002", img: "images/Muktar Muhammad Tako.jpg", late: 0 },
+        { name: "Muktar Muhammad Tanko", dob: "2002", img: "images/muktar Muhammad Tako.jpg", late: 0 },
         { name: "Fatima Farida Muhammad", dob: "2006", img: "images/Fatima Farida Muhammad.jpg", late: 0 },
         { name: "Maryam Muhammad", dob: "2008", img: "images/Maryam Muhammad.jpg", late: 0 },
         { name: "Aisha Nabila Muhammad", dob: "2012", img: "images/Aisha Nabila Muhammad.jpg", late: 0 },
@@ -806,7 +817,7 @@ const wives = [
       children: [
         { name: "Khadijat Muhammad Ado (Umma)", dob: "2009", img: "images/Khadijat muhammed Ado,umma.jpg", late: 0 },
         { name: "Nafisa Muhammad Ado", dob: "2010", img: "images/Nafisa muhammed Ado.jpg", late: 0 },
-        { name: "Ahmed Muhammad Ado", dob: "2016", img: "images/Ahmed Ado.jpg", late: 0 },
+        { name: "Ahmed Muhammad Ado", dob: "2016", img: "images/ahmed ado.jpg", late: 0 },
         { name: "Fatima Muhammad Ado (Hajiya Iya)", dob: "2022", img: "images/Fatima muhammed Ado,Hajiya iya.jpg", late: 0 }
       ]
     },
@@ -818,10 +829,10 @@ const wives = [
       late: 0,
       childrenCount: 4,
       children: [
-        { name: "Muhammad Al'amin Abdullahi", dob: "2014", img: "images/Muhammad Al'amin Abdullahi.jpg", late: 0 },
+        { name: "Muhammad Al'amin Abdullahi", dob: "2014", img: "images/Muhammad al'amin abdullahi.jpg", late: 0 },
         { name: "Sa'eed Abdullahi", dob: "2023", img: "images/habiba_child2.jpg", late: 1 },
         { name: "Aisha Abdullahi", dob: "2022", img: "images/habiba_child3.jpg", late: 1 },
-        { name: "Baby", dob: "2023", img: "images/habiba_child4.jpg", late: 1 }
+        { name: "Sa'eed Abdullahi", dob: "2023", img: "images/habiba_child4.jpg", late: 1 }
       ]
     },
     {
@@ -834,8 +845,8 @@ const wives = [
       late: 0,
       childrenCount: 3,
       children: [
-        { name: "Yusuf Ayan Muhammad", dob: "2025", img: "images/Yusuf Ayan Muhammed.jpg", late: 0 },
-        { name: "Ibrahim Khalil", dob: "2022", img: "images/Ibrahim Khalil.jpg", late: 0 },
+        { name: "Yusuf Ayan Muhammad", dob: "2025", img: "images/Yusuf ayan muhammed.jpg", late: 0 },
+        { name: "Ibrahim Khalil", dob: "2022", img: "images/Ibrahim khalil.jpg", late: 0 },
         { name: "Fatima Noor Muhammad", dob: "2025-10-", img: "images/Fatima Noor Muhammad.jpg", late: 0 }
       ]
     }
@@ -1036,28 +1047,14 @@ const wives = [
   children: [
     {
       name: "Maimuna Ahmed Shehu (Ya Tako)",
-      img: "images/child1.jpg",
+      img: "images/maimuna.jpeg",
       link: "child.html?wid=12&cid=1",
       spouse: "-",
       childrenCount: 1,
       late: 0,
       bio: ["Maimuna is the only child of Ya Zwade.", "Respected in the family.Maimuna Shehu Ahmed (Yatako) was born in 1960 and married Alhaji Adamu Jibril in 1976."],
       children: [
-         {
-          name: "First Child Name",
-          img: "images/bakudu_child1.jpeg",
-          late: 0
-        },
-        {
-          name: "Second Child Name",
-          img: "images/bakudu_child2.jpeg",
-          late: 0
-        },
-        {
-          name: "Third Child Name",
-          img: "images/bakudu_child3.jpeg",
-          late: 0
-        }
+         
       ]
     }
   ]
