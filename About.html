@@ -56,6 +56,7 @@ header p {
 .slideshow-container {
   position: relative;
   max-width: 800px;
+  width: 90%;
   margin: 40px auto;
   border-radius: 15px;
   overflow: hidden;
@@ -65,8 +66,8 @@ header p {
 .slides {
   display: none;
   width: 100%;
-  height: 1000px;
-  object-fit: cover;
+  height: 450px;            /* responsive-friendly height */
+  object-fit: cover;        /* fills box without distortion [web:4][web:7] */
   transition: opacity 1s ease-in-out;
 }
 
@@ -115,9 +116,31 @@ footer {
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 900px){
+  header h1{
+    font-size: 2.2rem;
+  }
+  header p{
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 700px) {
-  .slides { height: 300px; }
+  .slides { height: 280px; }
   .slideshow-caption { font-size: 0.9rem; }
+}
+
+@media (max-width: 480px){
+  .about-content{
+    margin: 25px auto;
+    padding: 0 15px;
+  }
+  .about-content h2{
+    font-size: 1.6rem;
+  }
+  .about-content p{
+    font-size: 0.95rem;
+  }
 }
 </style>
 </head>
@@ -240,7 +263,7 @@ function nextSlide(n) {
 // Initial display
 showSlide(slideIndex);
 
-// Auto slide every 3 seconds
+// Auto slide every 4 seconds
 setInterval(()=>{ nextSlide(1); }, 4000);
 
 // Navigation buttons

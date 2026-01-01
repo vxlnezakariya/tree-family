@@ -19,6 +19,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;                 /* allow multiple cards to wrap */
+  padding: 20px;
   overflow-x: hidden;
 }
 
@@ -31,6 +33,7 @@ body {
   text-align: center;
   width: 40%;
   max-width: 500px;
+  min-width: 280px;
   margin: 20px;
   animation: fadeIn 1.2s ease-in-out;
   box-shadow: 0 8px 30px rgba(0,0,0,0.3);
@@ -102,6 +105,7 @@ p {
   display: flex;
   justify-content: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 button {
@@ -133,6 +137,18 @@ button:hover {
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 768px){
+  body{
+    flex-direction: column;
+    align-items: center;
+  }
+  .container{
+    width: 100%;
+    max-width: 480px;
+    margin: 15px 0;
+  }
+}
+
 @media (max-width: 500px){
   h1 { font-size: 2rem; }
   h2 { font-size: 1.2rem; }
@@ -162,11 +178,10 @@ button:hover {
   </div>
 
   <div class="buttons">
-    <button onclick="window.location.href='ahmadmk13115@gmail.com'">Contact Me</button>
-    <button onclick="window.open('https://github.com/ahmadmk')">GitHub</button>
+    <button onclick="window.location.href='mailto:ahmadmk13115@gmail.com'">Contact Me</button>
+    <button onclick="window.open('https://github.com/ahmadmk','_blank')">GitHub</button>
   </div>
 </div>
-
 
 <div class="container">
   <img src="images/aji.jpg" alt="Profile Picture" class="profile-img">
@@ -191,5 +206,6 @@ button:hover {
     <button onclick="window.open('https://github.com/yourgithub','_blank')">GitHub</button>
   </div>
 </div>
+
 </body>
 </html>
